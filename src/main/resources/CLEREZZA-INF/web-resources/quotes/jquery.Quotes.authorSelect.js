@@ -12,11 +12,11 @@
 	'		  <input type="text" class="creator_other_text"/>'+
 	'	  <a href="#" onclick="selectPreselected()">X</a>'+
 	'	  </span>'+
-	 '</span>'
+	 '</span>';
 
 
   // # Create author-select widget
-  jQuery.widget('Quotes.authorSelect', {
+  $.widget('Quotes.authorSelect', {
 	options: {
       vie: null,
       enableCollectionAdd: true
@@ -27,7 +27,14 @@
       this.vie = this.options.vie;
 	},
 	_init: function(){
-		console.log('_init ')
+		if (this.options.disabled) {
+			this.disable();
+		} else {
+			this.enable();
+		}
+	},
+   enable: function () {
+      console.log('enabling ')
 		this.element.html(html)
 		var element = this.element
 		var widget = this
@@ -45,15 +52,21 @@
 				element: element,
 				entityElement: widget.element
 			});*/
-			alert('triggered for '+propertyName+' with '+element)
+			//alert('triggered for '+propertyName+' with '+element)
 		})
-	},
-   enable: function () {
-      alert('enabling...')
+		var textField = element.find('.creator_other_text')
+		var vie = this.vie
+		textField.vieAutocomplete({
+			vie: vie,
+			select: function(e, ui){
+				console.log(ui);
+			}
+		});
     },
 
     disable: function () {
       alert('disabling...')
+	  this.element.html(this.element.find('.creator_select').val())
     }
   });
 })(jQuery);

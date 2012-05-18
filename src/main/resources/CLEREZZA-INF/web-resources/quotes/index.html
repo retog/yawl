@@ -32,8 +32,7 @@
 			url: function () {
 			return '/quotes/backbone';
 			},
-			stanbolUrl: 'http://dev.iks-project.eu:8081',
-			/*vie: new VIE(),*/
+			stanbolUrl: 'http://dev.iks-project.eu:8081'/*,
 			editableOptions: {
 				widgetName : function(data) {	
 					if (data.element.attr('id') == 'author_select') {
@@ -43,26 +42,24 @@
 					}
 
 				}
-			}
+			}*/
 		}
+		
+		$.extend($.Midgard.midgardEditable.prototype.options, {
+			widgetName : function(data) {	
+				if (data.element.attr('id') == 'author_select') {
+					return 'authorSelect'
+				} else {
+					return 'halloWidget'
+				}
+			}
+		});
 
-		/*options.vie.use(new options.vie.RdfaService());
-		options.vie.use(new options.vie.StanbolService({
-			proxyDisabled: true,
-			url: options.stanbolUrl
-		}));*/
+
 		jQuery('body').midgardCreate(options);
 		//$('#creator').html('<i>myself</i>')
 		$('#creator_select').append('<option value="myself">myself</option>')
-		var orig = Backbone.sync
-		
-		Backbone.sync =function(method, model, options) {
-			alert('foo: '+method)
-			orig(method, model, options)
-			alert('model: '+model.toJSON().toString())
-			alert('model-URL: '+model.URL)
-			//alert('done')
-		}
+
 		//$('#author_select').authorSelect(options);
 	  });
     </script>
