@@ -24,12 +24,12 @@
 	<parent>
 		<groupId>org.apache.clerezza</groupId>
 		<artifactId>clerezza</artifactId>
-		<version>0.2-incubating-SNAPSHOT</version>
+		<version>0.2-incubating</version>
 	</parent>
-	<artifactId>skeleton</artifactId>
+	<artifactId>quotes</artifactId>
 	<version>0.1-incubating-SNAPSHOT</version>
 	<packaging>bundle</packaging>
-	<name>Clerezza - Project Skeleton</name>
+	<name>Quotes</name>
 	<dependencies>
 		<dependency>
 			<groupId>org.osgi</groupId>
