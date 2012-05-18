@@ -34,9 +34,10 @@
 		}
 	},
    enable: function () {
-      console.log('enabling ')
-		this.element.html(html)
-		var element = this.element
+	   var element = this.element	
+	   console.log('enabling with '+$(element).text())
+	   	var value = element.text()
+		element.html(html)
 		var widget = this
 		var propertyName = this.vie.service('rdfa').getElementPredicate(element);
 		element.attr('content', 'dr. fink')
@@ -54,6 +55,8 @@
 			});*/
 			//alert('triggered for '+propertyName+' with '+element)
 		})
+		select.append('<option>'+value+'</option>')
+		select.val(value)
 		var textField = element.find('.creator_other_text')
 		var vie = this.vie
 		textField.vieAutocomplete({
@@ -65,7 +68,6 @@
     },
 
     disable: function () {
-      alert('disabling...')
 	  this.element.html(this.element.find('.creator_select').val())
     }
   });
