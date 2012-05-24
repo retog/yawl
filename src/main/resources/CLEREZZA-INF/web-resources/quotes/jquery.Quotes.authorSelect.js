@@ -1,6 +1,6 @@
 (function ($, undefined) {
 	
-	var html = '<span style="display:none" id="creator_value" property="dc:creator" >foobar</span>'+
+	var html = '<span style="display:none" property="dc:creator" >foobar</span>'+
 	'	  <span class="creator_pre_selected">'+
 	'	  <select class="creator_select" onchange="">'+
 	'		  <option>unknown</option>'+
@@ -55,7 +55,10 @@
 			});*/
 			//alert('triggered for '+propertyName+' with '+element)
 		})
-		select.append('<option>'+value+'</option>')
+		//FIXME it shouldnt just contain but have the exact value
+		if(select.find('option:contains('+value+')').length == 0) {
+			select.append('<option>'+value+'</option>')
+		}
 		select.val(value)
 		var textField = element.find('.creator_other_text')
 		var vie = this.vie
