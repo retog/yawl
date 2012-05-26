@@ -6,11 +6,11 @@
 	'		  <option>unknown</option>'+
 	'		  <option>other</option>'+
 	'	  </select>'+
-	'	  <a href="#" onclick="selectOther()">Select Other</a>'+
+	//'	  <a href="#" onclick="selectOther()">Select Other</a>'+
 	'	  </span>'+
 	'	  <span class="creator_other">'+
 	'		  <input type="text" class="creator_other_text"/>'+
-	'	  <a href="#" onclick="selectPreselected()">X</a>'+
+	'	  <a href="#" class="hideTextField" onclick="selectPreselected()">X</a>'+
 	'	  </span>'+
 	 '</span>';
 
@@ -42,10 +42,38 @@
 		var propertyName = this.vie.service('rdfa').getElementPredicate(element);
 		element.attr('content', 'dr. fink')
 		var select = element.find('.creator_select')
+		var otherArea = element.find('.creator_other')
+		var textField = element.find('.creator_other_text')
+		textField.change(function() {
+			console.log('txt: '+widget.options.model)
+				widget.options.modified(textField.val())
+			}
+		)
+		otherArea.hide()
+		var hideTextField = element.find('.hideTextField')
+		hideTextField.click(function selectPreselected() {
+								otherArea.hide(500)
+								select.show(500)
+								select.append('<option>'+textField.val()+'</option>')
+								var value = textField.val();
+								if(select.find('option:contains('+value+')').length == 0) {
+									select.append('<option>'+value+'</option>')
+								}
+								select.val(value)
+							}
+						)
+		var enableTextField = function() {
+			otherArea.show();
+		}
 		//var value = this.element.find('.creator_value')
 		select.change(function() {
 			console.log('foo: '+widget.options.model)
-			widget.options.modified($(this).val())
+			if ($(this).val() == 'other') {
+				enableTextField()
+				select.hide()
+			} else {
+				widget.options.modified($(this).val())
+			}
 			//widget._trigger('changed', null, {
 			/*element.trigger('midgardeditablechanged', null, {
 				property: propertyName,

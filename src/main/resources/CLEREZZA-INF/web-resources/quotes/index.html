@@ -73,57 +73,21 @@
   </head>
   
   <body>
-	  <div id="resource" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/"
-    about="http://example.net/blog/" rel="dcterms:hasPart" rev="dcterms:partOf">
-      <article typeof="sioc:Post" about="http://example.net/blog/news_item">
-		  Quoting: 
-		  <span xmlns:foaf="http://xmlns.com/foaf/0.1/" id="author_select" property="dc:creator" >myauthor</span
-		  <span id="creator" xmlns:foaf="http://xmlns.com/foaf/0.1/">
-			 
-<!--		  <span style="display:none" id="creator_value" property="dc:creator" >foobar</span>
-		  <span id="creator_pre_selected">
-		  <select id="creator_select" onchange="$('#creator_value').text($(this).val());
-		/*	  localStorage.base('http://www.example.org/')
-  .prefix('dc', 'http://purl.org/dc/elements/1.1/')
-  .prefix('foaf', 'http://xmlns.com/foaf/0.1/')
-  .add('<photo1.jpg> dc:creator <http://www.blogger.com/profile/1109404> .');*/
-  $('#creator_value').trigger('change');
-">
-			  <option>unknown</option>
-		  </select>
-		  <script>
-			  function selectOther() {
-				  $('#creator_pre_selected').hide(500)
-				  $('#creator_other').show(500)
-			  }
-			  
-		  </script>
-		  <a href="#" onclick="selectOther()">Select Other</a>
-		  </span>
-		  <span id="creator_other">
-			  <input type="text" id="creator_other_text"/>
-		  <script>
-			  function selectPreselected() {
-				  $('#creator_other').hide(500)
-				  $('#creator_pre_selected').show(500)
-				  $('#creator_select').append('<option>'+$('#creator_other_text').val()+'</option>')
-				  $('#creator_select').val($('#creator_other_text').val())
-			  }
-			  $('#creator_other').hide()
-			  
-		  </script>
-		  <a href="#" onclick="selectPreselected()">X</a>
-		  </span> 
-	  </span> -->
-    
-        <h1 property="dcterms:title">News item title</h1>
-        <div property="sioc:content">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
-          <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
-        </div>
+  
+	  <div id="resource" xmlns:sioc="http://rdfs.org/sioc/ns#" 
+	  	xmlns:dc="http://purl.org/dc/elements/1.1/" 
+	  	xmlns:dcterms="http://purl.org/dc/terms/"
+    	about="http://example.net/blog/" rel="dcterms:hasPart" rev="dcterms:partOf">
+      
+      <article typeof="sioc:Post" about="http://example.net/blog/news_item"> 
+		  <span xmlns:foaf="http://xmlns.com/foaf/0.1/" id="author_select" property="dc:creator" >myauthor</span> said that    
+		<div property="sioc:content">
+		  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+		  <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+		</div>
       </article>
+      
       <article typeof="http://rdfs.org/sioc/ns#Post" about="http://example.net/blog/second_news_item">
-        <h1 property="dcterms:title">Another item</h1>
         <div property="sioc:content">
           <p>Hello, world!</p>
         </div>
