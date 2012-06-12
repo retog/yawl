@@ -22,7 +22,7 @@
 	<script src="/libs/create/src/jquery.Midgard.midgardToolbar.js"></script>
 	<script src="/libs/create/src/editingWidgets/jquery.Midgard.midgardEditableBase.js"></script>
 	<script src="/libs/create/src/editingWidgets/jquery.Midgard.midgardEditableEditorHallo.js"></script>
-	<script src="./jquery.Quotes.authorSelect.js"></script>
+	<script src="./jquery.Quotes.subjectSelect.js"></script>
     <!-- <script src="/libs/create/examples/create.js"></script> -->
 	
     <script>
@@ -50,7 +50,7 @@
 			widgetName : function(data) {	
 				//Ugly seletion shouldn't base on prefix but on uri	
 				if (data.property == 'dc:subject') {
-					return 'authorSelect'
+					return 'subjectSelect'
 				} else {
 					return 'halloWidget'
 				}
