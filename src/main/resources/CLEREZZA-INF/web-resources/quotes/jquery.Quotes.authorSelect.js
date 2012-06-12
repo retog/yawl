@@ -98,10 +98,16 @@
 		disable : function() {
 			//alert('re-adding: '+this.element+' before '+this.editElem.size())
 			var value = this.editElem.find('.creator_select').val()
+			console.log("this: "+this)
+			console.log(".creator_select: "+this.editElem.find('.creator_select'));
+			console.log("value: "+value)
 			this.element.insertBefore(this.editElem)
 			this.editElem.remove()
+			console.log("html: "+this.element.html())
 			this.element.html(value)
 			console.log("set html to: "+value)
+			console.log("html: "+this.element.html())
+			console.log('#author_select', $('#author_select').html())
 			//alert('things reset')
 			
 		}

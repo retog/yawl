@@ -1,1 +1,6 @@
 workspace
+.cache
+.classpath
+.project
+.settings
+target

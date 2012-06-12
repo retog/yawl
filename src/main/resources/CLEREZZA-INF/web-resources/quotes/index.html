@@ -7,8 +7,8 @@
     <script src="/libs/create/deps/jquery-ui-1.8.18.custom.min.js"></script>
     <script src="/libs/create/deps/modernizr.custom.80485.js"></script>
     <script src="/libs/create/deps/underscore-min.js"></script>
-    <script src="/libs/create/deps/backbone.js"></script>
-    <script src="/libs/create/deps/vie-2.0.0.debug.js"></script>
+    <script src="/libs/create/deps/backbone-min.js"></script>
+    <script src="/libs/create/deps/vie-min.js"></script>
 
     <!-- rdfQuery and annotate are only needed for the Hallo
     annotations plugin -->
@@ -32,10 +32,11 @@
 			url: function () {
 			return '/quotes/backbone';
 			},
-			stanbolUrl: 'http://dev.iks-project.eu:8081'/*,
-			editableOptions: {
-				widgetName : function(data) {	
-					if (data.element.attr('id') == 'author_select') {
+			stanbolUrl: 'http://dev.iks-project.eu:8081'/*, //not supported, so code below
+			editableOptions: { 
+				widgetName : function(data) {
+					//Ugly seletion shouldn't base on prefix but on uri	
+					if (data.property == 'dc:subject') {
 						return 'authorSelect'
 					} else {
 						return 'halloWidget'
@@ -47,7 +48,8 @@
 		
 		$.extend($.Midgard.midgardEditable.prototype.options, {
 			widgetName : function(data) {	
-				if (data.element.attr('id') == 'author_select') {
+				//Ugly seletion shouldn't base on prefix but on uri	
+				if (data.property == 'dc:subject') {
 					return 'authorSelect'
 				} else {
 					return 'halloWidget'
