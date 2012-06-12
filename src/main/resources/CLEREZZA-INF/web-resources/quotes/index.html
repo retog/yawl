@@ -32,12 +32,16 @@
 			url: function () {
 			return '/quotes/backbone';
 			},
-			stanbolUrl: 'http://dev.iks-project.eu:8081'/*, //not supported, so code below
+			editorWidgets: {
+				"dc:subject": "subjectSelect",
+				"default": "halloWidget"
+				},
+			stanbolUrl: 'http://localhost:8181'/*, //not supported, so code below
 			editableOptions: { 
 				widgetName : function(data) {
 					//Ugly seletion shouldn't base on prefix but on uri	
 					if (data.property == 'dc:subject') {
-						return 'authorSelect'
+						return 'subjectSelect'
 					} else {
 						return 'halloWidget'
 					}
@@ -46,7 +50,7 @@
 			}*/
 		}
 		
-		$.extend($.Midgard.midgardEditable.prototype.options, {
+		/*$.extend($.Midgard.midgardEditable.prototype.options, {
 			widgetName : function(data) {	
 				//Ugly seletion shouldn't base on prefix but on uri	
 				if (data.property == 'dc:subject') {
@@ -55,7 +59,7 @@
 					return 'halloWidget'
 				}
 			}
-		});
+		});*/
 
 
 		jQuery('body').midgardCreate(options);
