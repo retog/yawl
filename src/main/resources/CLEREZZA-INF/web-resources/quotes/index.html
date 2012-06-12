@@ -8,7 +8,7 @@
     <script src="/libs/create/deps/modernizr.custom.80485.js"></script>
     <script src="/libs/create/deps/underscore-min.js"></script>
     <script src="/libs/create/deps/backbone-min.js"></script>
-    <script src="/libs/create/deps/vie-min.js"></script>
+    <script src="/libs/create/deps/vie-latest.debug.js"></script>
 
     <!-- rdfQuery and annotate are only needed for the Hallo
     annotations plugin -->
@@ -30,6 +30,7 @@
 		
 		var options = {
 			url: function () {
+				console.log(this.getSubjectUri());
 			return '/quotes/backbone';
 			},
 			editorWidgets: {
