@@ -35,12 +35,16 @@
 			this.editElem = $(html)
 		},
 		_init : function() {
+			console.log('init')
 			if (this.options.disabled) {
 				this.disable();
 			} else {
 				this.enable();
 			}
-		},
+		},// used to register the widget name with the DOM element
+	    _registerWidget: function () {
+	      console.log('registering')
+	    },
 		enable : function() {
 			var getEntityForLabel = function(label) {
 				var tagEntity = vie.entities.addOrUpdate({
