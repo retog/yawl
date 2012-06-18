@@ -31,8 +31,15 @@
 		vie : null,
 		_create : function() {
 			console.log('create')
+			console.log('options', this.options)
+			console.log('option-collection', this.options.collection)
 			this.vie = this.options.vie;
-			this.editElem = $(html)
+			this.editElem = $(html);
+			var origActivated = this.options.activated;
+			this.options.activated = function() {
+				alert('activated');
+				origActivated();
+			}
 		},
 		_init : function() {
 			console.log('init')
@@ -45,6 +52,12 @@
 	    _registerWidget: function () {
 	      console.log('registering')
 	    },
+		_bindCollectionView: function (view) {
+			console.log('collection-view')
+		},
+		_initialize: function () {
+			console.log('initializing')
+		}, 
 		enable : function() {
 			var getEntityForLabel = function(label) {
 				var tagEntity = vie.entities.addOrUpdate({
